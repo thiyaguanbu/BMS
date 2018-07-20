@@ -34,8 +34,6 @@ public class TransactionalDetails {
 	@Column(name = "transaction_amount")
 	private long transactionAmount;
 	
-	@Column(name = "account_master")
-	private AccountMaster accountMaster;
 
 	public long getTransactionNumber() {
 		return transactionNumber;
@@ -77,14 +75,7 @@ public class TransactionalDetails {
 		this.transactionAmount = transactionAmount;
 	}
 
-	public AccountMaster getAccountMaster() {
-		return accountMaster;
-	}
 
-	public void setAccountMaster(AccountMaster accountMaster) {
-		this.accountMaster = accountMaster;
-	}
-	
 	
 	
 

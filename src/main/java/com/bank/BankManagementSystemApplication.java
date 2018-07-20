@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.bank.model.AccountMaster;
 import com.bank.model.BranchMaster;
 import com.bank.model.CustomerMaster;
 import com.bank.service.BranchService;
@@ -33,13 +34,21 @@ public class BankManagementSystemApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
+		//AccountMaster account1 = new AccountMaster(openingBalance, accountType, accountStatus, accountOpeningDate, branchMaster, customerMaster);
+		
+		
+		
+		
 		BranchMaster b1 = new BranchMaster("redhills", "chennai");
 		BranchMaster b2 = new BranchMaster("adyar", "chennai");
 		BranchMaster b3 = new BranchMaster("annanagar", "chennai");
+		BranchMaster b4 = new BranchMaster("annanagar", "chennai");
+		
 		
 		branchService.saveBranch(b1);
 		branchService.saveBranch(b2);
 		branchService.saveBranch(b3);
+		branchService.saveBranch(b4);
 		
 		String today = "13/07/2018";
 		Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(today);

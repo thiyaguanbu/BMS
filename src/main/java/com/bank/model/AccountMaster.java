@@ -33,15 +33,26 @@ public class AccountMaster {
 	@Column(name = "account_opening_date")
 	private Date accountOpeningDate;
 	
-	@Column(name = "branch_id")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "branch_id")
 	private BranchMaster branchMaster;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_number")
-	@Column(name = "customer_number")
 	private CustomerMaster customerMaster;
+
+	public AccountMaster(Long openingBalance, String accountType, String accountStatus, Date accountOpeningDate,
+			BranchMaster branchMaster, CustomerMaster customerMaster) {
+		super();
+		this.openingBalance = openingBalance;
+		this.accountType = accountType;
+		this.accountStatus = accountStatus;
+		this.accountOpeningDate = accountOpeningDate;
+		this.branchMaster = branchMaster;
+		this.customerMaster = customerMaster;
+	}
+	
+	
 
 	
 }

@@ -11,10 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "branch_master")
+@Table(name = "branch_master",uniqueConstraints = @UniqueConstraint(columnNames = "branch_name"))
 public class BranchMaster {
 	
 	@Id
@@ -57,11 +58,33 @@ public class BranchMaster {
 		this.branchCity = branchCity;
 	}
 
+	public Set<AccountMaster> getAccountMasters() {
+		return accountMasters;
+	}
+
+	public void setAccountMasters(Set<AccountMaster> accountMasters) {
+		this.accountMasters = accountMasters;
+	}
+
+	public BranchMaster() {
+		
+	}
+	
+	
 	public BranchMaster(@NotNull String branchName, @NotNull String branchCity) {
 		super();
 		this.branchName = branchName;
 		this.branchCity = branchCity;
 	}
+
+	public BranchMaster(@NotNull String branchName, @NotNull String branchCity, Set<AccountMaster> accountMasters) {
+		super();
+		this.branchName = branchName;
+		this.branchCity = branchCity;
+		this.accountMasters = accountMasters;
+	}
+
+	
 	
 		
 	

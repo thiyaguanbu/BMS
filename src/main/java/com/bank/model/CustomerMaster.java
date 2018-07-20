@@ -12,11 +12,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "customer_master")
+@Table(name = "customer_master",uniqueConstraints = @UniqueConstraint(columnNames = {"first_name","customer_contact_no"}))
 public class CustomerMaster {
 
 	@Id
@@ -25,6 +27,7 @@ public class CustomerMaster {
 	private String customerNumber;
 	
 	@Column(name = "first_name")
+	@NotNull
 	private String firstName;
 	
 	@Column(name = "middle_name")
@@ -37,6 +40,7 @@ public class CustomerMaster {
 	private String customerCity;
 	
 	@Column(name = "customer_contact_no")
+	@NotNull
 	private String customerContactNo;
 	
 	@Column(name = "occupation")
@@ -50,9 +54,24 @@ public class CustomerMaster {
 	private Set<AccountMaster> accountMasters;
 	
 	
+	public CustomerMaster() {
+		
+	}
 	
-	public CustomerMaster(String firstName, String middleName, String lastName, String customerCity,
-			String customerContactNo, String occupation, Date dateOfBirth, Set<AccountMaster> accountMasters) {
+	public CustomerMaster(@NotNull String firstName, String middleName, String lastName, String customerCity,
+			@NotNull String customerContactNo, String occupation, Date dateOfBirth) {
+		super();
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.customerCity = customerCity;
+		this.customerContactNo = customerContactNo;
+		this.occupation = occupation;
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public CustomerMaster(@NotNull String firstName, String middleName, String lastName, String customerCity,
+			@NotNull String customerContactNo, String occupation, Date dateOfBirth, Set<AccountMaster> accountMasters) {
 		super();
 		this.firstName = firstName;
 		this.middleName = middleName;

@@ -19,11 +19,11 @@ public class LoanDetails {
 	@Column(name = "loan_amount")
 	private long loanAmount;
 	
-	@Column(name = "customer_number")
-	private CustomerMaster customerMaster;
-	
-	@Column(name = "branch_id")
-	private BranchMaster branchMaster;
+//	@Column(name = "customer_number")
+//	private CustomerMaster customerMaster;
+//	
+//	@Column(name = "branch_id")
+//	private BranchMaster branchMaster;
 
 	public long getLoanNumber() {
 		return loanNumber;
@@ -41,21 +41,21 @@ public class LoanDetails {
 		this.loanAmount = loanAmount;
 	}
 
-	public CustomerMaster getCustomerMaster() {
-		return customerMaster;
-	}
-
-	public void setCustomerMaster(CustomerMaster customerMaster) {
-		this.customerMaster = customerMaster;
-	}
-
-	public BranchMaster getBranchMaster() {
-		return branchMaster;
-	}
-
-	public void setBranchMaster(BranchMaster branchMaster) {
-		this.branchMaster = branchMaster;
-	}
+//	public CustomerMaster getCustomerMaster() {
+//		return customerMaster;
+//	}
+//
+//	public void setCustomerMaster(CustomerMaster customerMaster) {
+//		this.customerMaster = customerMaster;
+//	}
+//
+//	public BranchMaster getBranchMaster() {
+//		return branchMaster;
+//	}
+//
+//	public void setBranchMaster(BranchMaster branchMaster) {
+//		this.branchMaster = branchMaster;
+//	}
 	
 	
 	
