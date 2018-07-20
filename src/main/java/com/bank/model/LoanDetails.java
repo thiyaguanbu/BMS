@@ -11,10 +11,6 @@ import javax.persistence.Table;
 @Table(name = "loan_details")
 public class LoanDetails {
 	
-//	customer_number varchar(6)
-//	branch_id varchar(6)
-//	loan_amount INT(7)
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "loan_number")
@@ -28,6 +24,39 @@ public class LoanDetails {
 	
 	@Column(name = "branch_id")
 	private BranchMaster branchMaster;
+
+	public long getLoanNumber() {
+		return loanNumber;
+	}
+
+	public void setLoanNumber(long loanNumber) {
+		this.loanNumber = loanNumber;
+	}
+
+	public long getLoanAmount() {
+		return loanAmount;
+	}
+
+	public void setLoanAmount(long loanAmount) {
+		this.loanAmount = loanAmount;
+	}
+
+	public CustomerMaster getCustomerMaster() {
+		return customerMaster;
+	}
+
+	public void setCustomerMaster(CustomerMaster customerMaster) {
+		this.customerMaster = customerMaster;
+	}
+
+	public BranchMaster getBranchMaster() {
+		return branchMaster;
+	}
+
+	public void setBranchMaster(BranchMaster branchMaster) {
+		this.branchMaster = branchMaster;
+	}
+	
 	
 	
 

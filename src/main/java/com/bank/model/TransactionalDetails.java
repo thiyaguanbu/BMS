@@ -36,6 +36,54 @@ public class TransactionalDetails {
 	
 	@Column(name = "account_master")
 	private AccountMaster accountMaster;
+
+	public long getTransactionNumber() {
+		return transactionNumber;
+	}
+
+	public void setTransactionNumber(long transactionNumber) {
+		this.transactionNumber = transactionNumber;
+	}
+
+	public Date getDateOfTrasaction() {
+		return dateOfTrasaction;
+	}
+
+	public void setDateOfTrasaction(Date dateOfTrasaction) {
+		this.dateOfTrasaction = dateOfTrasaction;
+	}
+
+	public String getMediumOfTransaction() {
+		return mediumOfTransaction;
+	}
+
+	public void setMediumOfTransaction(String mediumOfTransaction) {
+		this.mediumOfTransaction = mediumOfTransaction;
+	}
+
+	public String getTransactionType() {
+		return transactionType;
+	}
+
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+
+	public long getTransactionAmount() {
+		return transactionAmount;
+	}
+
+	public void setTransactionAmount(long transactionAmount) {
+		this.transactionAmount = transactionAmount;
+	}
+
+	public AccountMaster getAccountMaster() {
+		return accountMaster;
+	}
+
+	public void setAccountMaster(AccountMaster accountMaster) {
+		this.accountMaster = accountMaster;
+	}
 	
 	
 	
