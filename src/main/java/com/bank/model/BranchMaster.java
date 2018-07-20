@@ -84,6 +84,11 @@ public class BranchMaster {
 		this.accountMasters = accountMasters;
 	}
 
+	@Override
+	public String toString() {
+		return "BranchMaster [branchId=" + branchId + ", branchName=" + branchName + ", branchCity=" + branchCity + "]";
+	}
+
 	
 	
 		

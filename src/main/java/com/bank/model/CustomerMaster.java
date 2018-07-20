@@ -154,5 +154,12 @@ public class CustomerMaster {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+
+	@Override
+	public String toString() {
+		return "CustomerMaster [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
+				+ ", customerCity=" + customerCity + ", customerContactNo=" + customerContactNo + ", occupation="
+				+ occupation + ", dateOfBirth=" + dateOfBirth + "]";
+	}
 	
 }

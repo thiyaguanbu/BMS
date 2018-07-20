@@ -9,6 +9,7 @@ public interface BranchService {
 
 	 List<BranchMaster> findAllBranchs(int branchId);
 	 void saveBranch(BranchMaster branchMaster);
+	 BranchMaster findByBranchNumber(String branchId);
 
 	
 	

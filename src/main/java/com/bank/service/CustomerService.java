@@ -9,7 +9,7 @@ public interface CustomerService {
 
 	 List<CustomerMaster> findAllCustomers();
 	 CustomerMaster saveCustomer(CustomerMaster customerMaster);
-	
+	 CustomerMaster findByCustomerNumber(String customerNumber);
 	
 
 }

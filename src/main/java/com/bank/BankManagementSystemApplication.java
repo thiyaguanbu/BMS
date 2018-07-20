@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.bank.model.AccountMaster;
 import com.bank.model.BranchMaster;
 import com.bank.model.CustomerMaster;
+import com.bank.service.AccountService;
 import com.bank.service.BranchService;
 import com.bank.service.CustomerService;
 
@@ -27,14 +28,18 @@ public class BankManagementSystemApplication implements CommandLineRunner{
 	@Autowired
 	CustomerService customerService;
 	
+	@Autowired
+	AccountService accountService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(BankManagementSystemApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		//AccountMaster account1 = new AccountMaster(openingBalance, accountType, accountStatus, accountOpeningDate, branchMaster, customerMaster);
+		String today = "20/07/2018";
+		Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(today);
+		
 		
 		
 		
@@ -45,21 +50,28 @@ public class BankManagementSystemApplication implements CommandLineRunner{
 		BranchMaster b4 = new BranchMaster("annanagar", "chennai");
 		
 		
-		branchService.saveBranch(b1);
-		branchService.saveBranch(b2);
-		branchService.saveBranch(b3);
-		branchService.saveBranch(b4);
+//		branchService.saveBranch(b1);
+//		branchService.saveBranch(b2);
+//		branchService.saveBranch(b3);
+//		branchService.saveBranch(b4);
 		
-		String today = "13/07/2018";
-		Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(today);
+		
 		CustomerMaster c1 = new CustomerMaster("sflkjjd", "sfjdks", "reuhsjh", "chennai", "1234567890", "asdf",date1);
 		CustomerMaster c2 = new CustomerMaster("akdjf", "sldfgeoe", "sdwejd", "chennai", "1234567890", "asdf",date1);
 		CustomerMaster c3 = new CustomerMaster("asdlkf", "dkfjhd", "asgfahsdj", "chennai", "1234567890", "asdf",date1);
 		
-		customerService.saveCustomer(c1);
-		customerService.saveCustomer(c2);
-		customerService.saveCustomer(c3);
+//		customerService.saveCustomer(c1);
+//		customerService.saveCustomer(c2);
+//		customerService.saveCustomer(c3);
 		
+		
+		
+		BranchMaster branch = branchService.findByBranchNumber("800003");
+		CustomerMaster customer = customerService.findByCustomerNumber("500003");
+		AccountMaster account1 = new AccountMaster(0L, "savings", "ACTIVE", date1, branch, customer);
+		accountService.saveAccountDetails(account1);
+		LOG.info(branch.toString());
+		LOG.info(customer.toString());
 		
 	}
 }
