@@ -52,6 +52,10 @@ public class CustomerMaster {
 
 	@OneToMany(mappedBy = "customerMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<AccountMaster> accountMasters;
+
+	@OneToMany(mappedBy = "customerMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<LoanDetails> loanDetails;
+	
 	
 	
 	public CustomerMaster() {
@@ -161,5 +165,15 @@ public class CustomerMaster {
 				+ ", customerCity=" + customerCity + ", customerContactNo=" + customerContactNo + ", occupation="
 				+ occupation + ", dateOfBirth=" + dateOfBirth + "]";
 	}
+
+	public Set<LoanDetails> getLoanDetails() {
+		return loanDetails;
+	}
+
+	public void setLoanDetails(Set<LoanDetails> loanDetails) {
+		this.loanDetails = loanDetails;
+	}
+	
+	
 	
 }

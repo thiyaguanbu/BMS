@@ -2,7 +2,9 @@ package com.bank.model;
 
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -41,6 +44,9 @@ public class AccountMaster {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_number")
 	private CustomerMaster customerMaster;
+	
+	@OneToMany(mappedBy = "accountMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<TransactionalDetails> transactionDetails;
 
 	public AccountMaster(Long openingBalance, String accountType, String accountStatus, Date accountOpeningDate,
 			BranchMaster branchMaster, CustomerMaster customerMaster) {

@@ -34,6 +34,9 @@ public class BranchMaster {
 	@OneToMany(mappedBy = "branchMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<AccountMaster> accountMasters;
 	
+	@OneToMany(mappedBy = "branchMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<LoanDetails> loanDetails;
+	
 	public String getBranchId() {
 		return branchId;
 	}

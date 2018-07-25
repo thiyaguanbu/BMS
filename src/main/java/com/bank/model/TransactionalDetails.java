@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -34,8 +37,9 @@ public class TransactionalDetails {
 	@Column(name = "transaction_amount")
 	private long transactionAmount;
 	
-//	@Column(name = "account_master")
-//	private AccountMaster accountMaster;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name= "account_number")
+	private AccountMaster accountMaster;
 
 	public long getTransactionNumber() {
 		return transactionNumber;
@@ -77,13 +81,13 @@ public class TransactionalDetails {
 		this.transactionAmount = transactionAmount;
 	}
 
-//	public AccountMaster getAccountMaster() {
-//		return accountMaster;
-//	}
-//
-//	public void setAccountMaster(AccountMaster accountMaster) {
-//		this.accountMaster = accountMaster;
-//	}
+	public AccountMaster getAccountMaster() {
+		return accountMaster;
+	}
+
+	public void setAccountMaster(AccountMaster accountMaster) {
+		this.accountMaster = accountMaster;
+	}
 	
 	
 	
