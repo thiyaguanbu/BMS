@@ -13,9 +13,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.bank.model.AccountMaster;
 import com.bank.model.BranchMaster;
 import com.bank.model.CustomerMaster;
+import com.bank.model.LoanDetails;
 import com.bank.service.AccountService;
 import com.bank.service.BranchService;
 import com.bank.service.CustomerService;
+import com.bank.service.LoanService;
 
 @SpringBootApplication
 public class BankManagementSystemApplication implements CommandLineRunner{
@@ -31,6 +33,9 @@ public class BankManagementSystemApplication implements CommandLineRunner{
 	@Autowired
 	AccountService accountService;
 	
+	@Autowired
+	LoanService loanService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(BankManagementSystemApplication.class, args);
 	}
@@ -44,10 +49,10 @@ public class BankManagementSystemApplication implements CommandLineRunner{
 		
 		
 		
-		BranchMaster b1 = new BranchMaster("redhills", "chennai");
-		BranchMaster b2 = new BranchMaster("adyar", "chennai");
-		BranchMaster b3 = new BranchMaster("annanagar", "chennai");
-		BranchMaster b4 = new BranchMaster("annanagar", "chennai");
+//		BranchMaster b1 = new BranchMaster("redhills", "chennai");
+//		BranchMaster b2 = new BranchMaster("adyar", "chennai");
+//		BranchMaster b3 = new BranchMaster("annanagar", "chennai");
+//		BranchMaster b4 = new BranchMaster("annanagar", "chennai");
 		
 		
 //		branchService.saveBranch(b1);
@@ -56,9 +61,9 @@ public class BankManagementSystemApplication implements CommandLineRunner{
 //		branchService.saveBranch(b4);
 		
 		
-		CustomerMaster c1 = new CustomerMaster("sflkjjd", "sfjdks", "reuhsjh", "chennai", "1234567890", "asdf",date1);
-		CustomerMaster c2 = new CustomerMaster("akdjf", "sldfgeoe", "sdwejd", "chennai", "1234567890", "asdf",date1);
-		CustomerMaster c3 = new CustomerMaster("asdlkf", "dkfjhd", "asgfahsdj", "chennai", "1234567890", "asdf",date1);
+//		CustomerMaster c1 = new CustomerMaster("sflkjjd", "sfjdks", "reuhsjh", "chennai", "1234567890", "asdf",date1);
+//		CustomerMaster c2 = new CustomerMaster("akdjf", "sldfgeoe", "sdwejd", "chennai", "1234567890", "asdf",date1);
+//		CustomerMaster c3 = new CustomerMaster("asdlkf", "dkfjhd", "asgfahsdj", "chennai", "1234567890", "asdf",date1);
 		
 //		customerService.saveCustomer(c1);
 //		customerService.saveCustomer(c2);
@@ -66,12 +71,15 @@ public class BankManagementSystemApplication implements CommandLineRunner{
 		
 		
 		
-		BranchMaster branch = branchService.findByBranchNumber("800003");
-		CustomerMaster customer = customerService.findByCustomerNumber("500003");
+		BranchMaster branch = branchService.findByBranchNumber("800001");
+		CustomerMaster customer = customerService.findByCustomerNumber("500001");
 		AccountMaster account1 = new AccountMaster(0L, "savings", "ACTIVE", date1, branch, customer);
-		accountService.saveAccountDetails(account1);
+		//accountService.saveAccountDetails(account1);
+	
+		LoanDetails loan = new LoanDetails(200000, customer, branch);
+		LoanDetails l1 = loanService.saveLoanDetails(loan);
 		LOG.info(branch.toString());
 		LOG.info(customer.toString());
-		
+		LOG.info(l1.toString());
 	}
 }
