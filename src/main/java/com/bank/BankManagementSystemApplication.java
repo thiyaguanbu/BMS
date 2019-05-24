@@ -71,15 +71,15 @@ public class BankManagementSystemApplication implements CommandLineRunner{
 		
 		
 		
-		BranchMaster branch = branchService.findByBranchNumber("800001");
+//		BranchMaster branch = branchService.findByBranchNumber("800001");
 		CustomerMaster customer = customerService.findByCustomerNumber("500001");
-		AccountMaster account1 = new AccountMaster(0L, "savings", "ACTIVE", date1, branch, customer);
+		//AccountMaster account1 = new AccountMaster(0L, "savings", "ACTIVE", date1, branch, customer);
 		//accountService.saveAccountDetails(account1);
 	
-		LoanDetails loan = new LoanDetails(200000, customer, branch);
-		LoanDetails l1 = loanService.saveLoanDetails(loan);
-		LOG.info(branch.toString());
+		//LoanDetails loan = new LoanDetails(200000, customer, branch);
+		//LoanDetails l1 = loanService.saveLoanDetails(loan);
+//		LOG.info(branch.toString());
 		LOG.info(customer.toString());
-		LOG.info(l1.toString());
+		//LOG.info(l1.toString());
 	}
 }

@@ -2,6 +2,8 @@ package com.bank.service;
 
 
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -11,6 +13,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bank.model.AccountMaster;
+import com.bank.repository.AccountJpaRepository;
 import com.bank.repository.AccountRepository;
 
 @Service
@@ -23,10 +26,15 @@ public class AccountServiceImpl implements AccountService{
 	@Autowired
 	AccountRepository accountRepo;
 	
+	@Autowired
+	AccountJpaRepository accountJpaRepository;
 	
+	
+	
+	//crudrepo
 	@Override
 	public AccountMaster saveAccountDetails(AccountMaster account) {
-		AccountMaster am = accountRepo.save(account);
+		AccountMaster am = accountJpaRepository.saveAndFlush(account);
 		return am;
 	}
 
@@ -36,6 +44,25 @@ public class AccountServiceImpl implements AccountService{
 		AccountMaster am = entityManager.find(AccountMaster.class, accountNumber);
 		return am;
 	}
+	
+	//ends
+	
+	
+	//jparepo
+	
+	public List<AccountMaster> getAllAccounts(){
+		List<AccountMaster> accountList = accountJpaRepository.findAll();
+		return accountList;
+	}
+	
+	
+	public AccountMaster getAccountByNumber(Long AccountNumber) {
+		return accountJpaRepository.findById(AccountNumber).get();
+	}
+
+
+	
+	
 	
 	
 

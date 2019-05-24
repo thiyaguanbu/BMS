@@ -14,6 +14,10 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+//import org.json.JSONArray;
+//import org.json.JSONException;
+//import org.json.JSONObject;
+
 @Entity
 @Table(name = "branch_master",uniqueConstraints = @UniqueConstraint(columnNames = "branch_name"))
 public class BranchMaster {
@@ -31,11 +35,11 @@ public class BranchMaster {
 	@NotNull
 	private String branchCity;
 
-	@OneToMany(mappedBy = "branchMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<AccountMaster> accountMasters;
-	
-	@OneToMany(mappedBy = "branchMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<LoanDetails> loanDetails;
+//	@OneToMany(mappedBy = "branchMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private Set<AccountMaster> accountMasters;
+//	
+//	@OneToMany(mappedBy = "branchMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private Set<LoanDetails> loanDetails;
 	
 	public String getBranchId() {
 		return branchId;
@@ -61,13 +65,13 @@ public class BranchMaster {
 		this.branchCity = branchCity;
 	}
 
-	public Set<AccountMaster> getAccountMasters() {
-		return accountMasters;
-	}
-
-	public void setAccountMasters(Set<AccountMaster> accountMasters) {
-		this.accountMasters = accountMasters;
-	}
+//	public Set<AccountMaster> getAccountMasters() {
+//		return accountMasters;
+//	}
+//
+//	public void setAccountMasters(Set<AccountMaster> accountMasters) {
+//		this.accountMasters = accountMasters;
+//	}
 
 	public BranchMaster() {
 		
@@ -80,15 +84,36 @@ public class BranchMaster {
 		this.branchCity = branchCity;
 	}
 
-	public BranchMaster(@NotNull String branchName, @NotNull String branchCity, Set<AccountMaster> accountMasters) {
-		super();
-		this.branchName = branchName;
-		this.branchCity = branchCity;
-		this.accountMasters = accountMasters;
-	}
+//	public BranchMaster(@NotNull String branchName, @NotNull String branchCity, Set<AccountMaster> accountMasters) {
+//		super();
+//		this.branchName = branchName;
+//		this.branchCity = branchCity;
+//		this.accountMasters = accountMasters;
+//	}
 
 	@Override
 	public String toString() {
+		/*
+		String branch = "";
+		
+		JSONObject jsonInfo = new JSONObject();
+		try {
+			jsonInfo.put("branchName", this.branchName);
+			JSONArray productArray = new JSONArray();
+			if(this.accountMasters!=null) {
+				this.accountMasters.forEach(accountMaster->{
+					JSONObject subInfo = new JSONObject();
+					
+				});
+			}
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		*/
+		
 		return "BranchMaster [branchId=" + branchId + ", branchName=" + branchName + ", branchCity=" + branchCity + "]";
 	}
 

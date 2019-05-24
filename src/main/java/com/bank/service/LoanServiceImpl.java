@@ -1,5 +1,7 @@
 package com.bank.service;
 
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -23,14 +25,14 @@ public class LoanServiceImpl implements LoanService{
 
 	@Override
 	public LoanDetails saveLoanDetails(LoanDetails loan) {
-		LoanDetails loanDetail = loanRepo.save(loan);
+		LoanDetails loanDetail = loanRepo.saveAndFlush(loan);
 		return loanDetail;
 	}
 
 	@Override
 	public LoanDetails getLoanDetails(Long loanNumber) {
-		LoanDetails loanDetail = entityManager.find(LoanDetails.class, loanNumber);
-		return loanDetail;
+		Optional<LoanDetails> loanDetail = loanRepo.findById(loanNumber);
+		return loanDetail.get();
 	}
 	
 	

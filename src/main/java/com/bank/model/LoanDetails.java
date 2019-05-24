@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @Table(name = "loan_details")
 public class LoanDetails {
@@ -24,10 +27,12 @@ public class LoanDetails {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_number")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private CustomerMaster customerMaster;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name ="branch_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private BranchMaster branchMaster;
 
 	public long getLoanNumber() {
