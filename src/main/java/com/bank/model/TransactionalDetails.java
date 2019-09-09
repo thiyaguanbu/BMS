@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -38,7 +40,8 @@ public class TransactionalDetails {
 	private long transactionAmount;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name= "account_number")
+	@JoinColumn(name= "account_number", nullable = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private AccountMaster accountMaster;
 
 	public long getTransactionNumber() {

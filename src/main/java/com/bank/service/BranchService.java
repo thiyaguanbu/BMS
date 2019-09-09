@@ -7,10 +7,12 @@ import com.bank.model.BranchMaster;
 
 public interface BranchService {
 
-	 List<BranchMaster> findAllBranchs(int branchId);
+	 List<BranchMaster> findAllBranches();
 	 void saveBranch(BranchMaster branchMaster);
-	 BranchMaster findByBranchNumber(String branchId);
-
-	
+	 BranchMaster findByBranchId(String branchId);
+	 String deleteBranchById(String branchId);
+	 BranchMaster updateBranch(BranchMaster branch);
+	 
+	 boolean isBranchValid(String branchId);
 	
 }

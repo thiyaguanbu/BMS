@@ -50,11 +50,11 @@ public class CustomerMaster {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
 
-	@OneToMany(mappedBy = "customerMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<AccountMaster> accountMasters;
-
-	@OneToMany(mappedBy = "customerMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<LoanDetails> loanDetails;
+//	@OneToMany(mappedBy = "customerMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private Set<AccountMaster> accountMasters;
+//
+//	@OneToMany(mappedBy = "customerMaster", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private Set<LoanDetails> loanDetails;
 	
 	
 	
@@ -74,26 +74,26 @@ public class CustomerMaster {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public CustomerMaster(@NotNull String firstName, String middleName, String lastName, String customerCity,
-			@NotNull String customerContactNo, String occupation, Date dateOfBirth, Set<AccountMaster> accountMasters) {
-		super();
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
-		this.customerCity = customerCity;
-		this.customerContactNo = customerContactNo;
-		this.occupation = occupation;
-		this.dateOfBirth = dateOfBirth;
-		this.accountMasters = accountMasters;
-	}
+//	public CustomerMaster(@NotNull String firstName, String middleName, String lastName, String customerCity,
+//			@NotNull String customerContactNo, String occupation, Date dateOfBirth, Set<AccountMaster> accountMasters) {
+//		super();
+//		this.firstName = firstName;
+//		this.middleName = middleName;
+//		this.lastName = lastName;
+//		this.customerCity = customerCity;
+//		this.customerContactNo = customerContactNo;
+//		this.occupation = occupation;
+//		this.dateOfBirth = dateOfBirth;
+//		this.accountMasters = accountMasters;
+//	}
 
-	public Set<AccountMaster> getAccountMasters() {
-		return accountMasters;
-	}
-
-	public void setAccountMasters(Set<AccountMaster> accountMasters) {
-		this.accountMasters = accountMasters;
-	}
+//	public Set<AccountMaster> getAccountMasters() {
+//		return accountMasters;
+//	}
+//
+//	public void setAccountMasters(Set<AccountMaster> accountMasters) {
+//		this.accountMasters = accountMasters;
+//	}
 
 	public String getCustomerNumber() {
 		return customerNumber;
@@ -166,13 +166,13 @@ public class CustomerMaster {
 				+ occupation + ", dateOfBirth=" + dateOfBirth + "]";
 	}
 
-	public Set<LoanDetails> getLoanDetails() {
-		return loanDetails;
-	}
-
-	public void setLoanDetails(Set<LoanDetails> loanDetails) {
-		this.loanDetails = loanDetails;
-	}
+//	public Set<LoanDetails> getLoanDetails() {
+//		return loanDetails;
+//	}
+//
+//	public void setLoanDetails(Set<LoanDetails> loanDetails) {
+//		this.loanDetails = loanDetails;
+//	}
 	
 	
 	

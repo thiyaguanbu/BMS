@@ -10,6 +10,9 @@ public interface CustomerService {
 	 List<CustomerMaster> findAllCustomers();
 	 CustomerMaster saveCustomer(CustomerMaster customerMaster);
 	 CustomerMaster findByCustomerNumber(String customerNumber);
-	
+	 CustomerMaster deleteByCustomerNumber(String customerNumber);
+	 CustomerMaster updateCustomer(CustomerMaster customer);
+	 
+	 boolean isCustomerValid(String customerNumber);
 
 }
